@@ -1,21 +1,24 @@
 # Booklist Capstone Project
 
 ## Features
+
 Lists a personal book list of mine stored in an SQL database.
 
 A database consists of:
-    a. booklist
-        1. id (SERIAL PRIMARY KEY)
-        2. title (TEXT NOT NULL)
-        3. author (TEXT NOT NULL)
-        4. rating (REAL CHECK (rating >= 0 AND rating <= 5))
-        5. updated_at (TIMESTAMP NOT NULL DEFUALT NOW())
-        6. review (TEXT)
-    
-    b. bookcover
-        1. id (SERIAL PRIMARY KEY)
-        2. book_id (INT REFERENCES booklist(id))
-        3. VARCHAR(13) UNIQUE NOT NULL CHECK (isbn SIMILAR TO '[0-9]{10}|[0-9]{13}')
+
+- **a. booklist**
+
+  1.  id (**SERIAL PRIMARY KEY**)
+  2.  title (**TEXT NOT NULL**)
+  3.  author (**TEXT NOT NULL**)
+  4.  rating (**REAL CHECK (rating >= 0 AND rating <= 5)**)
+  5.  updated_at (**TIMESTAMP NOT NULL DEFUALT NOW()**)
+  6.  review (**TEXT**)
+
+- **b. bookcover**
+  1.  id (**SERIAL PRIMARY KEY**)
+  2.  book_id (**INT REFERENCES booklist(id)**)
+  3.  isbn (**VARCHAR(13) UNIQUE NOT NULL CHECK (isbn SIMILAR TO '[0-9]{10}|[0-9]{13}')**)
 
 Covers are taken with the [Open Library API](https://openlibrary.org/developers/api).
 
