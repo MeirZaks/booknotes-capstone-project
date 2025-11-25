@@ -1,0 +1,67 @@
+body {
+  font-family: "Raleway", sans-serif;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.link-body-emphasis {
+  background: none;
+  background-color: transparent;
+
+  border: none;
+  outline: none;
+}
+
+.link-body-emphasis:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.holographic-card {
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.holographic-card:hover {
+  transform: scale(1.05);
+}
+
+.holographic-card:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+}
+
+.no-background {
+  background: none;
+  background-color: transparent;
+
+  border: none;
+  outline: none;
+}
+
+.justify-text {
+  text-align: justify;
+}
+
+.dynamic-color {
+  background: linear-gradient(
+    180deg,
+    var(--colorDom) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.white-text {
+  color: white;
+}

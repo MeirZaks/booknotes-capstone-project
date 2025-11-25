@@ -1,0 +1,42 @@
+<%- include('partials/header.ejs'); -%>
+
+    <div class="container py-3">
+        <h1 class="text-center">Meir's Book List</h1>
+    </div>
+    <div class="container d-flex flex-wrap">
+        <% for (var i=0; i < locals.booklist.length; i++) { %>
+            <div class="d-flex flex-column px-3 py-3">
+                <div>
+                    <h5 class="text-center">
+                        <%= booklist[i].title %>
+                    </h5>
+                </div>
+                <div class="holographic-card">
+                    <form action="/book/<%= booklist[i].isbn %>" method="post">
+                        <button type="submit" name="isbn-button" class="btn w-100 no-background">
+                            <img src='<%= bookcovers[i] %>' alt="<%= booklist[i].title %>" width="260">
+                        </button>
+                        <input type="hidden" name="isbn" value="<%= booklist[i].isbn %>">
+                    </form>
+                </div>
+                <div class="pt-1 px-2">
+                    <p>
+                        By <%= booklist[i].author %>
+                    </p>
+                    <p>
+                        Rating: <%= booklist[i].rating %>/5
+                    </p>
+                    <p class="small link-secondary pb-1">
+                        Date updated: <%= updated_at[i] %>
+                    </p>
+                    <form action="/book/<%= booklist[i].isbn %>" method="post">
+                        <input type="submit" name="isbn-button" value="Read Review" class="btn btn-info w-100">
+                        <input type="hidden" name="isbn" value="<%= booklist[i].isbn %>">
+                    </form>
+                </div>
+            </div>
+            <% } %>
+    </div>
+
+
+    <%- include('partials/footer.ejs'); -%>
